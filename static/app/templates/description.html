@@ -1,0 +1,128 @@
+<div class="phone-images">
+    <img ng-src="{{img}}" class="phone"
+         ng-repeat="img in detail.images" />
+</div>
+
+<h1>{{detail.name}}</h1>
+
+<p>{{detail.description}}</p>
+
+<ul class="phone-thumbs">
+    <li ng-repeat="img in detail.images">
+        <img ng-src="{{img}}" ng-click="setImage(this)" />
+    </li>
+</ul>
+
+<p>Оцените товар</p>
+<div class="progress" style="width: 15%">
+    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;" ></div>
+</div>
+<p class="thumbs-up" ng-click="scoreUp($index)" ng-init="up=0"><img  ng-src="./img/likes/like_1.jpg"> {{rateProd.like}}</p>
+<p class="thumbs-down" ng-click="scoreDown($index)" ng-init="down=0"><img  ng-src="./img/likes/dislike.jpg"> {{rateProd.dislike}}</p>
+
+
+<ul class="specs">
+    <li>
+        <span>Availability and Networks</span>
+        <dl>
+            <dt>Availability</dt>
+            <dd ng-repeat="availability in detail.availability">{{availability}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Battery</span>
+        <dl>
+            <dt>Type</dt>
+            <dd>{{detail.battery.type}}</dd>
+            <dt>Talk Time</dt>
+            <dd>{{detail.battery.talkTime}}</dd>
+            <dt>Standby time (max)</dt>
+            <dd>{{detail.battery.standbyTime}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Storage and Memory</span>
+        <dl>
+            <dt>RAM</dt>
+            <dd>{{detail.storage.ram}}</dd>
+            <dt>Internal Storage</dt>
+            <dd>{{detail.storage.flash}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Connectivity</span>
+        <dl>
+            <dt>Network Support</dt>
+            <dd>{{detail.connectivity.cell}}</dd>
+            <dt>WiFi</dt>
+            <dd>{{detail.connectivity.wifi}}</dd>
+            <dt>Bluetooth</dt>
+            <dd>{{detail.connectivity.bluetooth}}</dd>
+            <dt>Infrared</dt>
+            <dd>{{detail.connectivity.infrared}}</dd>
+            <dt>GPS</dt>
+            <dd>{{detail.connectivity.gps}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Android</span>
+        <dl>
+            <dt>OS Version</dt>
+            <dd>{{detail.android.os}}</dd>
+            <dt>UI</dt>
+            <dd>{{detail.android.ui}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Size and Weight</span>
+        <dl>
+            <dt>Dimensions</dt>
+            <dd ng-repeat="dim in detail.sizeAndWeight.dimensions">{{dim}}</dd>
+            <dt>Weight</dt>
+            <dd>{{detail.sizeAndWeight.weight}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Display</span>
+        <dl>
+            <dt>Screen size</dt>
+            <dd>{{detail.display.screenSize}}</dd>
+            <dt>Screen resolution</dt>
+            <dd>{{detail.display.screenResolution}}</dd>
+            <dt>Touch screen</dt>
+            <dd>{{detail.display.touchScreen}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Hardware</span>
+        <dl>
+            <dt>CPU</dt>
+            <dd>{{detail.hardware.cpu}}</dd>
+            <dt>USB</dt>
+            <dd>{{detail.hardware.usb}}</dd>
+            <dt>Audio / headphone jack</dt>
+            <dd>{{detail.hardware.audioJack}}</dd>
+            <dt>FM Radio</dt>
+            <dd>{{detail.hardware.fmRadio}}</dd>
+            <dt>Accelerometer</dt>
+            <dd>{{detail.hardware.accelerometer}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Camera</span>
+        <dl>
+            <dt>Primary</dt>
+            <dd>{{detail.camera.primary}}</dd>
+            <dt>Features</dt>
+            <dd>{{detail.camera.features.join(', ')}}</dd>
+        </dl>
+    </li>
+    <li>
+        <span>Additional Features</span>
+        <dd>{{detail.additionalFeatures}}</dd>
+    </li>
+</ul>
+
+
+<!--add coments under the item-->
+<set-coments></set-coments>
