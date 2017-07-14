@@ -9501,6 +9501,10 @@ h1 {
   width: 450px;
 }
 
+.phone-images > img:nth-of-type(1) {
+  animation-name: none;
+}
+
 .phone-thumbs {
   list-style: none;
   margin: 0;
@@ -9589,6 +9593,20 @@ set-coments > h3 {
 
 .response-item {
   margin-top: 25px;
+}
+
+/*Likes for response*/
+
+.coment-up,
+.coment-down {
+  position: relative;
+  float: left;
+}
+
+.coment-up > img,
+.coment-down > img {
+  width: 60px;
+  height: 60px;
 }
 
 /* Animate `ngRepeat` in `phoneList` component */

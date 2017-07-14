@@ -34,6 +34,15 @@ app.controller('descriptCtrl', ['$scope', '$http', '$location', '$templateCache'
             let img = angular.element(document.querySelector(".phone-images>img:nth-of-type(1)"));
             img.attr("ng-src", item.img);
             img.attr("src", item.img);
+
+            // let div = angular.element(document.querySelector(".phone-images"));
+            // img.remove();
+            // let img2 = angular.element("<img>");
+            // img2.attr("ng-src", item.img);
+            // img2.attr("src", item.img)
+            // img2.addClass("phone animated fadeInRight");
+            // img2.css("animation-name", "fadeInRight");
+            // div.after(img2);
         };
 
 

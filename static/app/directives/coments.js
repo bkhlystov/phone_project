@@ -77,6 +77,63 @@ app.directive('setComents', ['$localStorage', '$routeParams', '$http'
                     });
                 scope.coments = $localStorage[scope.idProperty];
             };
+
+
+
+            //Добавление рейтинга по по коментарию пользователя
+             function init_coments(){
+                scope.rateNameComent = $routeParams["phoneId"]+$localStorage[scope.idProperty][0].name;
+                //инициализаяция ключа для каждого комента комбинацией id товара и именем того кто писал комент
+
+                //Инициализация и сохранение в local storege рейтинга коментариев для начального первого коментария
+
+                if(!$localStorage[scope.rateNameComent]){
+                    $localStorage[scope.rateNameComent] = {like: 0, dislike: 0};
+                    scope.rateNameComent = $localStorage[scope.rateNameComent];           //инициализация свойства для авторизации
+                }else if($localStorage[scope.rateNameComent]){
+                    scope.rateNameComent = $localStorage[scope.rateNameComent];           //инициализация свойства для авторизации
+                }
+            }
+            init_coments();
+
+
+
+            //likes Up for coments
+            scope.comentUp = function(index){
+                scope.rateNameComent = $routeParams["phoneId"]+$localStorage[scope.idProperty][index].name;
+                if(!$localStorage[scope.rateNameComent]){
+                    $localStorage[scope.rateNameComent] = {like: 0, dislike: 0};
+                    $localStorage[scope.rateNameComent].like+=1;
+                    scope.rateNameComent = $localStorage[scope.rateNameComent];           //инициализация свойства для авторизации
+                }else if($localStorage[scope.rateNameComent]){
+                    $localStorage[scope.rateNameComent].like+=1;
+                    scope.rateNameComent = $localStorage[scope.rateNameComent];           //инициализация свойства для авторизации
+                }
+            };
+
+            //likes Up for coments
+
+            //ошибка что все свойства записывает с localstorege записывает в одну переменную rateNameComent по всем коментам
+
+            scope.comentDown = function(index){
+                scope.rateNameComent = $routeParams["phoneId"]+$localStorage[scope.idProperty][index].name;
+                if(!$localStorage[scope.rateNameComent]){
+                    $localStorage[scope.rateNameComent] = {like: 0, dislike: 0};
+                    $localStorage[scope.rateNameComent].dislike+=1;
+                    scope.rateNameComent = $localStorage[scope.rateNameComent];           //инициализация свойства для авторизации
+                }else if($localStorage[scope.rateNameComent]){
+                    $localStorage[scope.rateNameComent].dislike+=1;
+                    scope.rateNameComent = $localStorage[scope.rateNameComent];           //инициализация свойства для авторизации
+                }
+
+            };
+
+
+
+
+
+
+
             //Очистка формы
             scope.reset = function(item) {
                 item.name = '';
