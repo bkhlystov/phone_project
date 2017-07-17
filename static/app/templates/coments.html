@@ -29,8 +29,8 @@
             <hr></hr>
             <p>{{coment.date | date: "yyyy-MM-dd HH:mm:ss"}}</p>
             <hr></hr>
-            <p class="coment-up" ng-click="comentUp($index)"><img  ng-src="./img/likes/like_1.jpg"> {{rateNameComent.like}}</p>
-            <p class="coment-down" ng-click="comentDown($index)"><img  ng-src="./img/likes/dislike.jpg"> {{rateNameComent.dislike}}</p>
+            <p class="coment-up" ng-click="comentUp($index, this)"><img  ng-src="./img/likes/like_1.jpg"> {{rateNameComent.like}}</p>
+            <p class="coment-down" ng-click="comentDown($index, this)"><img  ng-src="./img/likes/dislike.jpg"> {{rateNameComent.dislike}}</p>
 
         </li>
     </ul>

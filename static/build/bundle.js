@@ -45483,7 +45483,7 @@ var bundle =
 	            init_coments();
 
 	            //likes Up for coments
-	            scope.comentUp = function (index) {
+	            scope.comentUp = function (index, _this) {
 	                scope.rateNameComent = $routeParams["phoneId"] + $localStorage[scope.idProperty][index].name;
 	                if (!$localStorage[scope.rateNameComent]) {
 	                    $localStorage[scope.rateNameComent] = { like: 0, dislike: 0 };
@@ -45499,7 +45499,7 @@ var bundle =
 
 	            //ошибка что все свойства записывает с localstorege записывает в одну переменную rateNameComent по всем коментам
 
-	            scope.comentDown = function (index) {
+	            scope.comentDown = function (index, _this) {
 	                scope.rateNameComent = $routeParams["phoneId"] + $localStorage[scope.idProperty][index].name;
 	                if (!$localStorage[scope.rateNameComent]) {
 	                    $localStorage[scope.rateNameComent] = { like: 0, dislike: 0 };
